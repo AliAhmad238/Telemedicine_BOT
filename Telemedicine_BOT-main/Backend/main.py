@@ -243,10 +243,11 @@ def rag_query_tool(user_input: str) -> str:
 
 # Define the database model for appointments
 class Appointment(SQLModel, table=True):
+    __tablename__ = "appointments"
     id: Optional[int] = Field(default=None, primary_key=True)
-    doctor: str
-    day: str
-    time: str
+    patient_id: int
+    doctor_id: int
+    date: datetime
     specialization: str
 
 # Create a SQLite database
